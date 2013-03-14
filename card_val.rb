@@ -13,7 +13,7 @@ class Card
     length = @num.length
     if length == 15 && @num =~ /^(34|37)/
     	return 'AMEX'
-    elsif length == 16 && @num =~ /^16/
+    elsif length == 16 && @num =~ /^6011/
     	return 'Discover'
     elsif length == 16 && @num =~ /^(51|55)/
     	return 'MasterCard'
