@@ -15,10 +15,12 @@ class Card
     	return 'AMEX'
     elsif length == 16 && @num =~ /^6011/
     	return 'Discover'
-    elsif length == 16 && @num =~ /^(51|55)/
+    elsif length == 16 && @num =~ /^5[1-5]/
     	return 'MasterCard'
     elsif (length == 13 || length == 16) && @num =~ /^4/
     	return 'Visa'
+    else
+      return 'Unknown'
     end
   end
 
@@ -50,11 +52,12 @@ end
    # (2)print out card type based on card_type method
    # (3)run flow control on num_val for valid/invalid response
   if __FILE__ == $0
+    
     card_test = Card.new(ARGV.join.chomp)
-    puts "Card type is #{card_test.card_type}"
+    
     if card_test.num_valid?
-    	puts "Card number valid"
+    	puts "#{card_test.card_type}: #{ARGV.join.chomp} (valid)"
     else
-    	puts "Card number invalid"
+    	puts "#{card_test.card_type}: #{ARGV.join.chomp} (invalid)"
     end
   end
