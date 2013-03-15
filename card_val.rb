@@ -29,7 +29,7 @@ class Card
     number = ''
     # (1)need to split the number down first to handle it digit by digit
     # (2)because number length can change, better to reverse it and go front to back
-    # (3)put through an each block to loop through the digits, adding with_index to help the modulo (consulted )
+    # (3)put through an each block to loop through the digits, adding with_index to help the modulo
     # (4)using a modulo to apply *2 if remainder is not 0 (i.e. every other number starting at position 1, using the index)
     # (5)building up the number string with << (could use += but no need to create a new object every time)
     @num.split('').reverse.each_with_index do |digit, index|
